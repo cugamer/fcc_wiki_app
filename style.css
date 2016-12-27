@@ -1,0 +1,35 @@
+.fadeout {
+	display: none;
+	-webkit-opacity: 0;
+	-moz-opacity: 0;
+	opacity: 0;
+	-webkit-transition: opacity 0s ease-out;
+	-moz-transition: opacity 0s ease-out;
+	-ms-transition: opacity 0s ease-out;
+	-o-transition: opacity 0s ease-out;
+	transition: opacity 0s ease-out;
+}
+
+.fadein {
+	visibility: visible;
+	-webkit-transition: opacity 2s;
+	-moz-transition: opacity 2s;
+	-ms-transition: opacity 2s;
+	-o-transition: opacity 2s;
+	transition: opacity 2s;
+}
+
+.wiki-search-field {
+	width: 20px;
+	height: 20px;
+	border-radius: 10px;
+}
+
+.wiki-search-field.wide-search-field {
+	-webkit-transition: width 2s;
+	-moz-transition: width 2s;
+	-ms-transition: width 2s;
+	-o-transition: width 2s;
+	transition: width 2s;
+	width: 200px;
+}
