@@ -1,13 +1,18 @@
-.fadeout {
+html {
+	min-height: 100vh;
+	position: relative;
+}
+
+body {
+	height: 100vh;
+}
+
+.container, .row, .main-box {
+	height: 100vh;
+}
+
+.hidden {
 	display: none;
-	-webkit-opacity: 0;
-	-moz-opacity: 0;
-	opacity: 0;
-	-webkit-transition: opacity 0s ease-out;
-	-moz-transition: opacity 0s ease-out;
-	-ms-transition: opacity 0s ease-out;
-	-o-transition: opacity 0s ease-out;
-	transition: opacity 0s ease-out;
 }
 
 .fadein {
@@ -19,10 +24,20 @@
 	transition: opacity 2s;
 }
 
+.wiki-search {
+	width: 200px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+}
+
 .wiki-search-field {
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
+	outline-width: 0;
+	padding-left: 7px;
+	z-index: -2;
 }
 
 .wiki-search-field.wide-search-field {
@@ -32,4 +47,44 @@
 	-o-transition: width 2s;
 	transition: width 2s;
 	width: 200px;
+}
+
+.x-cont {
+	display: inline-block;
+	position: absolute;
+	right: 10px;
+	width: 20px;
+}
+
+.x-cont-move {
+	transform: translateY(-10px);
+	transition: transform 2s;
+}
+
+.xbar {
+	width: 10px;
+	height: 2px;
+	background-color: black;
+}
+
+.bar-one {
+	transform: rotate(-45deg);
+	position: absolute;
+	right: 10px;
+}
+
+.bar-one-move {
+	transform: translateX(12px) rotate(-45deg);
+	transition: transform 2s;
+}
+
+.bar-two {
+	transform: rotate(45deg);
+	position: absolute;
+	right: -10px;
+}
+
+.bar-two-move {
+	transform: translateX(-8px) rotate(45deg);
+	transition: transform 2s;
 }
