@@ -5,14 +5,51 @@ $(document).ready(function() {
 		$searchField.removeClass("hidden");
 		requestAnimationFrame(function() {
 			$searchField.addClass("wide-search-field");
-			$(".x-cont").addClass("x-cont-move");
-			$(".bar-one").addClass("bar-one-move");
-			$(".bar-two").addClass("bar-two-move");
+			addClosingXClasses();
 		});
 		document.getElementById("wiki-search-field").focus();
 	});
 
+	var narrowSearchField = function() {
+		var $searchField = $("#wiki-search-field");
+		$searchField.removeClass("wide-search-field");
+		$searchField.addClass("narrow-search-field");
+	}
+
 	$(".x-cont").on("click", function() {
-		alert("hello, world");
+		removeClosingXClasses();
+		narrowSearchField();
+		setTimeout(function() {
+			var $searchField = $("#wiki-search-field");
+			var $searchIcon = $(".search-icon");
+			$searchField.addClass("hidden");
+			$searchIcon.removeClass("hidden");
+		}, 2000);
 	});
+
+
+	addClosingXClasses = function() {
+		var $xCont = $(".x-cont");
+		var $barOne = $(".bar-one");
+		var $barTwo = $(".bar-two");
+		$xCont.addClass("x-cont-add");
+		$xCont.removeClass("x-cont-remove");
+		$barOne.addClass("bar-one-add");
+		$barOne.removeClass("bar-one-remove");
+		$barTwo.addClass("bar-two-add");
+		$barTwo.removeClass("bar-two-remove");
+	}
+
+	removeClosingXClasses = function() {
+		var $xCont = $(".x-cont");
+		var $barOne = $(".bar-one");
+		var $barTwo = $(".bar-two");
+		$xCont.removeClass("x-cont-add");
+		$xCont.addClass("x-cont-remove");
+		$barOne.removeClass("bar-one-add");
+		$barOne.addClass("bar-one-remove");
+		$barTwo.removeClass("bar-two-add");
+		$barTwo.addClass("bar-two-remove");
+
+	}
 });

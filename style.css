@@ -42,12 +42,21 @@ body {
 	padding-left: 7px;
 }
 
+.wiki-search-field.narrow-search-field {
+	-webkit-transition: width 1.75s;
+	-moz-transition: width 1.75s;
+	-ms-transition: width 1.75s;
+	-o-transition: width 1.75s;
+	transition: width 1.75s;
+	width: 20px;
+}
+
 .wiki-search-field.wide-search-field {
-	-webkit-transition: width 2s;
-	-moz-transition: width 2s;
-	-ms-transition: width 2s;
-	-o-transition: width 2s;
-	transition: width 2s;
+	-webkit-transition: width 1.75s;
+	-moz-transition: width 1.75s;
+	-ms-transition: width 1.75s;
+	-o-transition: width 1.75s;
+	transition: width 1.75s;
 	width: 200px;
 }
 
@@ -60,11 +69,17 @@ body {
 	right: 18px;
 }
 
-.x-cont-move {
+.x-cont-add {
 	transform: translateY(-15px);
-	transition: transform 0.5s;
+	transition: transform 0.18s;
 	transition-delay: 1.25s;
-	width: 12px;
+	width: 7%;
+}
+
+.x-cont-remove {
+	transform: translateY(0px);
+	transition: transform 0.18s;
+	width: 20px;
 }
 
 .xbar {
@@ -76,33 +91,43 @@ body {
 .bar-one {
 	transform: rotate(-45deg) translateY(7px);
 	position: absolute;
-	right: 10px;
+	right: 19px;
 }
 
-.bar-one-move {
-	transform: translateX(10px) translateY(5px) rotate(-45deg);
-	transition: transform 0.5s;
+.bar-one-add {
+	transform: translateX(19px) translateY(5px) rotate(-45deg);
+	transition: transform 0.18s;
 	transition-delay: 1.25s;
+}
+
+.bar-one-remove {
+	transform: translateX(5px) translateY(5px) rotate(-45deg);
+	transition: transform 0.18s;	
 }
 
 .bar-two {
 	transform: rotate(45deg) translateY(7px);
 	position: absolute;
-	right: -10px;
+	right: -19px;
 }
 
-.bar-two-move {
-	transform: translateX(-10px) translateY(5px) rotate(45deg);
-	transition: transform 0.5s;
+.bar-two-add {
+	transform: translateX(-19px) translateY(5px) rotate(45deg);
+	transition: transform 0.18s;
 	transition-delay: 1.25s;
+}
+
+.bar-two-remove {
+	transform: translateX(-5px) translateY(5px) rotate(45deg);
+	transition: transform 0.18s;	
 }
 
 .x-cover {
 	display: inline-block;
 	position: absolute;
 	top: 20px;
-	right: 10px;
-	width: 30px;
+	right: 5px;
+	width: 45px;
 	height: 10px;
 	background: #dff0d8;
 	z-index: 100;
