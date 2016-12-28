@@ -5,10 +5,12 @@ html {
 
 body {
 	height: 100vh;
+	position: relative;
 }
 
 .container, .row, .main-box {
 	height: 100vh;
+	position: relative;
 }
 
 .hidden {
@@ -35,9 +37,9 @@ body {
 	width: 20px;
 	height: 20px;
 	border-radius: 10px;
+	border: 2px solid black;
 	outline-width: 0;
 	padding-left: 7px;
-	z-index: -2;
 }
 
 .wiki-search-field.wide-search-field {
@@ -52,13 +54,15 @@ body {
 .x-cont {
 	display: inline-block;
 	position: absolute;
-	right: 10px;
 	width: 20px;
+	top: 24px;
+	right: 20px;
 }
 
 .x-cont-move {
-	transform: translateY(-10px);
-	transition: transform 2s;
+	transform: translateY(-14px);
+	transition: transform 0.5s;
+	transition-delay: 1.25s;
 }
 
 .xbar {
@@ -75,7 +79,8 @@ body {
 
 .bar-one-move {
 	transform: translateX(12px) rotate(-45deg);
-	transition: transform 2s;
+	transition: transform 0.5s;
+	transition-delay: 1.25s;
 }
 
 .bar-two {
@@ -86,5 +91,17 @@ body {
 
 .bar-two-move {
 	transform: translateX(-8px) rotate(45deg);
-	transition: transform 2s;
+	transition: transform 0.5s;
+	transition-delay: 1.25s;
+}
+
+.x-cover {
+	display: inline-block;
+	position: absolute;
+	top: 20px;
+	right: 10px;
+	width: 30px;
+	height: 10px;
+	background: #dff0d8;
+	z-index: 100;
 }
