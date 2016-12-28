@@ -55,42 +55,44 @@ body {
 	display: inline-block;
 	position: absolute;
 	width: 20px;
-	top: 24px;
-	right: 20px;
+	height: 12px;
+	top: 19px;
+	right: 18px;
 }
 
 .x-cont-move {
-	transform: translateY(-14px);
+	transform: translateY(-15px);
 	transition: transform 0.5s;
 	transition-delay: 1.25s;
+	width: 12px;
 }
 
 .xbar {
-	width: 10px;
+	width: 12px;
 	height: 2px;
 	background-color: black;
 }
 
 .bar-one {
-	transform: rotate(-45deg);
+	transform: rotate(-45deg) translateY(7px);
 	position: absolute;
 	right: 10px;
 }
 
 .bar-one-move {
-	transform: translateX(12px) rotate(-45deg);
+	transform: translateX(10px) translateY(5px) rotate(-45deg);
 	transition: transform 0.5s;
 	transition-delay: 1.25s;
 }
 
 .bar-two {
-	transform: rotate(45deg);
+	transform: rotate(45deg) translateY(7px);
 	position: absolute;
 	right: -10px;
 }
 
 .bar-two-move {
-	transform: translateX(-8px) rotate(45deg);
+	transform: translateX(-10px) translateY(5px) rotate(45deg);
 	transition: transform 0.5s;
 	transition-delay: 1.25s;
 }

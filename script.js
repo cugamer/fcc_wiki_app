@@ -10,5 +10,9 @@ $(document).ready(function() {
 			$(".bar-two").addClass("bar-two-move");
 		});
 		document.getElementById("wiki-search-field").focus();
-	})
+	});
+
+	$(".x-cont").on("click", function() {
+		alert("hello, world");
+	});
 });
