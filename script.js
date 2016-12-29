@@ -52,13 +52,13 @@ $(document).ready(function() {
 		$barTwo.addClass("bar-two-remove");
 	}
 
-	createSearchTermPromise = function(term) {
+	createQueryTermPromise = function(term) {
 		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=0&gsrsearch=" + term + "&gsrlimit=10&prop=extracts|info";
 		var jQuerySTPromise = $.getJSON(queryURL);
 		return Promise.resolve(jQuerySTPromise);
 	}
 
-	createSearchIdPromise = function(ids) {
+	createQueryIdPromise = function(ids) {
 		var termstring;
 		Array.isArray(ids) ? termString = ids.join("|") : teamString = ids
 		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&exintro=false&explaintext=&format=json&exlimit=10&pageids=" + termString + "&prop=extracts|info&inprop=url"
@@ -66,20 +66,20 @@ $(document).ready(function() {
 		return Promise.resolve(jQueryIDPromise);
 	}
 
-	querySearchParams = function(term) {
-		createSearchTermPromise(term).then(function(res) {
+	getQueryTermMetadata = function(term) {
+		createQueryTermPromise(term).then(function(res) {
 			var queryPages = res.query.pages;
 			var pageIDs = Object.keys(queryPages);
 			return pageIDs;
 		}).then(function(res) {
-			createSearchIdPromise(res).then(function(res2) {
-				console.log(res2.query.pages)		
+			createQueryIdPromise(res).then(function(res2) {
+				console.log(res2)		
 			})
 		});
 	}
 
 	querySearchIDs = function(ids) {
-		createSearchIdPromise(ids).then(function(res) {
+		createQueryIdPromise(ids).then(function(res) {
 			console.log(res);
 		})
 	}
