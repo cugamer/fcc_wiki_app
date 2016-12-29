@@ -1,8 +1,11 @@
 $(document).ready(function() {
 	var storedFieldVal = "";
+	var currentResults = {};
+
 	$(".search-icon").on("click", function() {
 		$(this).addClass("hidden");
 		var $searchField = $("#wiki-search-field");
+		buildResultsDisplay(currentResults);
 		$searchField.removeClass("hidden");
 		requestAnimationFrame(function() {
 			$searchField.addClass("wide-search-field");
@@ -23,6 +26,8 @@ $(document).ready(function() {
 	$(".x-cont").on("click", function() {
 		removeClosingXClasses();
 		narrowSearchField();
+		clearResultDisp();
+		lowerConstent();
 		setTimeout(function() {
 			var $searchField = $("#wiki-search-field");
 			var $searchIcon = $(".search-icon");
@@ -53,6 +58,16 @@ $(document).ready(function() {
 		$barOne.addClass("bar-one-remove");
 		$barTwo.removeClass("bar-two-add");
 		$barTwo.addClass("bar-two-remove");
+	}
+
+	raiseConstent = function() {
+		$('.constent-content').addClass("raised-constent");
+		$('.constent-content').removeClass("lowered-constent");
+	}
+
+	lowerConstent = function() {
+		$('.constent-content').addClass("lowered-constent");
+		$('.constent-content').removeClass("raised-constent");
 	}
 
 	$(".wiki-search").on("submit", function(e) {
@@ -86,9 +101,10 @@ $(document).ready(function() {
 			if(res) {
 				createQueryIdPromise(res).then(function(res2) {
 					var filteredData = filterDataResults(res2);
-					for (var item in filteredData) {
-						createResultDispBox(filteredData[item]);
-					}
+					buildResultsDisplay(filteredData)
+					// for (var item in filteredData) {
+						// createResultDispBox(filteredData[item]);
+					// }
 				})
 			} else {
 				console.log("No results");
@@ -105,6 +121,7 @@ $(document).ready(function() {
 				extract: shortenExtract(data.query.pages[item].extract)
 			};
 		}
+		currentResults = output;
 		return output;
 	}
 
@@ -114,9 +131,17 @@ $(document).ready(function() {
 		return str.length > maxLength ?  shortened + "..." : shortened;
 	}
 
+	buildResultsDisplay = function(filteredData) {
+		if(Object.size(filteredData) > 0) {
+			raiseConstent();
+		}
+		for (var item in filteredData) {
+			createResultDispBox(filteredData[item]);
+		}
+	}
+
 	createResultDispBox = function(data) {
-		// console.log(data);
-		$searchResults = $(".search-results");
+		var $searchResults = $(".search-results");
 		var title = '<h3 class="result-title">' + data.title + '</h3>';
 		var extract = '<p>' + data.extract + '</p>';
 		var htmlString = '<a href="' + data.pageURL + '" target=_"blank" class="result-box">' +
@@ -124,5 +149,18 @@ $(document).ready(function() {
 							extract +
 							'</a>';
 		$searchResults.append(htmlString)
+	}
+
+	Object.size = function(obj) {
+    var size = 0, key;
+    for (key in obj) {
+        if (obj.hasOwnProperty(key)) size++;
+    }
+    return size;
+};
+
+	clearResultDisp = function() {
+		var $searchResults = $(".search-results");
+		$searchResults.empty();
 	}
 });

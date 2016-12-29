@@ -22,6 +22,24 @@ body {
 	margin-top: 20%;
 }
 
+.raised-constent {
+	margin-top: 5%;
+	-webkit-transition: margin-top 1.25s;
+	-moz-transition: margin-top 1.25s;
+	-ms-transition: margin-top 1.25s;
+	-o-transition: margin-top 1.25s;
+	transition: margin-top 1.25s;
+}
+
+.lowered-constent {
+	margin-top: 20%;
+	-webkit-transition: margin-top 1.25s;
+	-moz-transition: margin-top 1.25s;
+	-ms-transition: margin-top 1.25s;
+	-o-transition: margin-top 1.25s;
+	transition: margin-top 1.25s;	
+}
+
 .search-results {
 	margin-top: 40px;
 	margin-bottom: 40px;
