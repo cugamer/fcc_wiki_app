@@ -20,6 +20,11 @@ body {
 
 .constent-content {
 	margin-top: 20%;
+	background-color: #D3D3D3;
+}
+
+.search-results {
+	margin-top: 40px;
 }
 
 .hidden {

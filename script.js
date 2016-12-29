@@ -85,11 +85,36 @@ $(document).ready(function() {
 		}).then(function(res) {
 			if(res) {
 				createQueryIdPromise(res).then(function(res2) {
-					console.log(res2)		
-				});
+					var x = filterDataResults(res2);
+					console.log(x)
+				})
 			} else {
 				console.log("No results");
 			}			
 		});
+	}
+
+	filterDataResults = function(data) {
+		var output = {};
+		// console.log(data)
+		for (var item in data.query.pages) {
+			output[item] = {
+				pageURL: data.query.pages[item].canonicalurl,
+				title:   data.query.pages[item].title,
+				extract: shortenExtract(data.query.pages[item].extract)
+			};
+		}
+		return output;
+	}
+
+	shortenExtract = function(str) {
+		var maxLength = 85
+		var shortened = str.slice(0, maxLength)
+		return str.length > maxLength ?  shortened + "..." : shortened;
+	}
+
+	createResultDispBox = function(data) {
+		$searchResults = $(".search-results");
+		$searchResults.append("<h2>Hello friend<h2>")
 	}
 });
