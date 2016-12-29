@@ -18,6 +18,9 @@ $(document).ready(function() {
 	var narrowSearchField = function() {
 		var $searchField = $("#wiki-search-field");
 		storedFieldVal = $searchField.val();
+		if(storedFieldVal === "") {
+			currentResults = {}
+		}
 		$searchField.val("");
 		$searchField.removeClass("wide-search-field");
 		$searchField.addClass("narrow-search-field");
