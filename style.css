@@ -48,9 +48,8 @@ body {
 	width: 56px;
 	height: 56px;
 	border-radius: 28px;
-	border: 2px solid black;
+	border: 5px solid black;
 	outline-width: 0;
-	padding-left: 7px;
 }
 
 .wiki-search-field.narrow-search-field {
@@ -63,25 +62,28 @@ body {
 }
 
 .wiki-search-field.wide-search-field {
-	-webkit-transition: width 1.75s;
-	-moz-transition: width 1.75s;
-	-ms-transition: width 1.75s;
-	-o-transition: width 1.75s;
-	transition: width 1.75s;
+	-webkit-transition: width 1.75s, padding-right 0.5s;
+	-moz-transition: width 1.75s, padding-right 0.5s;
+	-ms-transition: width 1.75s, padding-right 0.5s;
+	-o-transition: width 1.75s, padding-right 0.5s;
+	transition: width 1.75s, padding-right 0.5s;
+	padding-left: 20px;
+	padding-right: 80px;
+	font-size: 30px;
 	width: 500px;
 }
 
 .x-cont {
 	display: inline-block;
 	position: absolute;
-	width: 20px;
-	height: 12px;
-	top: 19px;
-	right: 18px;
+	width: 100px;
+	height: 35px;
+	top: 65px;
+	right: 45px;
 }
 
 .x-cont-add {
-	transform: translateY(-15px);
+	transform: translateY(-55px);
 	transition: transform 0.18s;
 	transition-delay: 1.25s;
 	width: 7%;
@@ -90,23 +92,23 @@ body {
 .x-cont-remove {
 	transform: translateY(0px);
 	transition: transform 0.18s;
-	width: 20px;
+	width: 100px;
 }
 
 .xbar {
-	width: 12px;
-	height: 2px;
+	width: 40px;
+	height: 5px;
 	background-color: black;
 }
 
 .bar-one {
 	transform: rotate(-45deg) translateY(7px);
 	position: absolute;
-	right: 19px;
+	right: 47px;
 }
 
 .bar-one-add {
-	transform: translateX(19px) translateY(5px) rotate(-45deg);
+	transform: translateX(50px) translateY(15px) rotate(-45deg);
 	transition: transform 0.18s;
 	transition-delay: 1.25s;
 }
@@ -119,11 +121,11 @@ body {
 .bar-two {
 	transform: rotate(45deg) translateY(7px);
 	position: absolute;
-	right: -19px;
+	right: -51px;
 }
 
 .bar-two-add {
-	transform: translateX(-19px) translateY(5px) rotate(45deg);
+	transform: translateX(-48px) translateY(15px) rotate(45deg);
 	transition: transform 0.18s;
 	transition-delay: 1.25s;
 }
@@ -136,10 +138,11 @@ body {
 .x-cover {
 	display: inline-block;
 	position: absolute;
-	top: 20px;
-	right: 5px;
-	width: 45px;
-	height: 10px;
+	top: 56px;
+	right: 3px;
+	width: 100%;
+	height: 35px;
 	background: #dff0d8;
+	/*background-color: red;*/
 	z-index: 100;
 }

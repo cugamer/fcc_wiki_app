@@ -1,10 +1,12 @@
 $(document).ready(function() {
+	var storedFieldVal = "";
 	$(".search-icon").on("click", function() {
 		$(this).addClass("hidden");
 		var $searchField = $("#wiki-search-field");
 		$searchField.removeClass("hidden");
 		requestAnimationFrame(function() {
 			$searchField.addClass("wide-search-field");
+			$searchField.val(storedFieldVal);
 			addClosingXClasses();
 		});
 		document.getElementById("wiki-search-field").focus();
@@ -12,6 +14,8 @@ $(document).ready(function() {
 
 	var narrowSearchField = function() {
 		var $searchField = $("#wiki-search-field");
+		storedFieldVal = $searchField.val();
+		$searchField.val("");
 		$searchField.removeClass("wide-search-field");
 		$searchField.addClass("narrow-search-field");
 	}
