@@ -50,6 +50,38 @@ $(document).ready(function() {
 		$barOne.addClass("bar-one-remove");
 		$barTwo.removeClass("bar-two-add");
 		$barTwo.addClass("bar-two-remove");
+	}
 
+	createSearchTermPromise = function(term) {
+		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=0&gsrsearch=" + term + "&gsrlimit=10&prop=extracts|info";
+		var jQuerySTPromise = $.getJSON(queryURL);
+		return Promise.resolve(jQuerySTPromise);
+	}
+
+	createSearchIdPromise = function(ids) {
+		// var queryURL = "https://en.wikipedia.org/w/api.php?action=query&pageids=" + id + "&prop=extracts&exintro=&explaintext=&format=json";
+		var termString = ids.join("|");
+		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&exintro=false&explaintext=&format=json&exlimit=10&pageids=" + termString + "&prop=extracts|info&inprop=url"
+		var jQueryIDPromise = $.getJSON(queryURL);
+		return Promise.resolve(jQueryIDPromise);
+	}
+
+	querySearchParams = function(term) {
+		createSearchTermPromise(term).then(function(res) {
+			var queryPages = res.query.pages;
+			var pageIDs = Object.keys(queryPages);
+			return pageIDs;
+		}).then(function(res) {
+			console.log(res)
+			createSearchIdPromise(res).then(function(res2) {
+				console.log(res2)		
+			})
+		});
+	}
+
+	querySearchIDs = function(ids) {
+		createSearchIdPromise(ids).then(function(res) {
+			console.log(res);
+		})
 	}
 });
