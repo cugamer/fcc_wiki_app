@@ -24,6 +24,10 @@ body {
 	color: #000;
 }
 
+.search-icon {
+	font-size: 3.2em;
+}
+
 .fadein {
 	visibility: visible;
 	-webkit-transition: opacity 2s;
@@ -34,16 +38,16 @@ body {
 }
 
 .wiki-search {
-	width: 200px;
+	width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
 }
 
 .wiki-search-field {
-	width: 20px;
-	height: 20px;
-	border-radius: 10px;
+	width: 56px;
+	height: 56px;
+	border-radius: 28px;
 	border: 2px solid black;
 	outline-width: 0;
 	padding-left: 7px;
@@ -55,7 +59,7 @@ body {
 	-ms-transition: width 1.75s;
 	-o-transition: width 1.75s;
 	transition: width 1.75s;
-	width: 20px;
+	width: 56px;
 }
 
 .wiki-search-field.wide-search-field {
@@ -64,7 +68,7 @@ body {
 	-ms-transition: width 1.75s;
 	-o-transition: width 1.75s;
 	transition: width 1.75s;
-	width: 200px;
+	width: 500px;
 }
 
 .x-cont {
