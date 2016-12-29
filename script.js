@@ -85,8 +85,12 @@ $(document).ready(function() {
 		}).then(function(res) {
 			if(res) {
 				createQueryIdPromise(res).then(function(res2) {
-					var x = filterDataResults(res2);
-					console.log(x)
+					var filteredData = filterDataResults(res2);
+					console.log(filteredData);
+					for (var item in filteredData) {
+						console.log(filteredData[item])
+						createResultDispBox(filteredData[item]);
+					}
 				})
 			} else {
 				console.log("No results");
@@ -96,7 +100,6 @@ $(document).ready(function() {
 
 	filterDataResults = function(data) {
 		var output = {};
-		// console.log(data)
 		for (var item in data.query.pages) {
 			output[item] = {
 				pageURL: data.query.pages[item].canonicalurl,
@@ -114,7 +117,14 @@ $(document).ready(function() {
 	}
 
 	createResultDispBox = function(data) {
+		console.log(data);
 		$searchResults = $(".search-results");
-		$searchResults.append("<h2>Hello friend<h2>")
+		var title = '<h3 class="result-title">' + data.title + '</h3>';
+		var extract = '<p>' + data.extract + '</p>';
+		var htmlString = '<a href="' + data.pageURL + '" target=_"blank" class="result-box">' +
+							title +
+							extract +
+							'</a>';
+		$searchResults.append(htmlString)
 	}
 });
