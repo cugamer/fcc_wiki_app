@@ -59,9 +59,9 @@ body {
 	border: 2px solid #000;
 }
 
-.result-box:hover,
-.result-box:visited,
-.result-box:active {
+a:hover,
+a:visited,
+a:active {
 	color: #000;
 	text-decoration: none;
 }
