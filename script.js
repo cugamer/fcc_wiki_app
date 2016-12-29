@@ -59,7 +59,8 @@ $(document).ready(function() {
 	}
 
 	createSearchIdPromise = function(ids) {
-		var termString = ids.join("|");
+		var termstring;
+		Array.isArray(ids) ? termString = ids.join("|") : teamString = ids
 		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&exintro=false&explaintext=&format=json&exlimit=10&pageids=" + termString + "&prop=extracts|info&inprop=url"
 		var jQueryIDPromise = $.getJSON(queryURL);
 		return Promise.resolve(jQueryIDPromise);
