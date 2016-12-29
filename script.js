@@ -27,7 +27,6 @@ $(document).ready(function() {
 		}, 2000);
 	});
 
-
 	addClosingXClasses = function() {
 		var $xCont = $(".x-cont");
 		var $barOne = $(".bar-one");
@@ -51,6 +50,12 @@ $(document).ready(function() {
 		$barTwo.removeClass("bar-two-add");
 		$barTwo.addClass("bar-two-remove");
 	}
+
+	$(".wiki-search").on("submit", function(e) {
+		e.preventDefault();
+		var searchString = $("#wiki-search-field").val();
+		getQueryTermMetadata(searchString);
+	});
 
 	createQueryTermPromise = function(term) {
 		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&format=json&generator=search&gsrnamespace=0&gsrsearch=" + term + "&gsrlimit=10&prop=extracts|info";
