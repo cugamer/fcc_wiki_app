@@ -1,16 +1,16 @@
 html {
-	min-height: 100vh;
+	height: 100%;
 	position: relative;
 }
 
 body {
-	height: 100vh;
+	height: 100%;
 	position: relative;
-	background-color: #808080;
+	background-color: #D3D3D3;
 }
 
 .container, .row, .main-box {
-	height: 100vh;
+	height: 100%;
 	position: relative;
 }
 
@@ -20,11 +20,37 @@ body {
 
 .constent-content {
 	margin-top: 20%;
-	background-color: #D3D3D3;
 }
 
 .search-results {
 	margin-top: 40px;
+	margin-bottom: 40px;
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.result-box {
+	display: block;
+	color: #000;
+	background-color: #fff;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: left;
+	border: 2px solid #000;
+}
+
+.result-box:hover,
+.result-box:visited,
+.result-box:active {
+	color: #000;
+	text-decoration: none;
+}
+
+.result-box:hover {
+	margin-left: -5px;
+	border-left: 7px solid grey;
 }
 
 .hidden {

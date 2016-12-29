@@ -86,9 +86,7 @@ $(document).ready(function() {
 			if(res) {
 				createQueryIdPromise(res).then(function(res2) {
 					var filteredData = filterDataResults(res2);
-					console.log(filteredData);
 					for (var item in filteredData) {
-						console.log(filteredData[item])
 						createResultDispBox(filteredData[item]);
 					}
 				})
@@ -117,7 +115,7 @@ $(document).ready(function() {
 	}
 
 	createResultDispBox = function(data) {
-		console.log(data);
+		// console.log(data);
 		$searchResults = $(".search-results");
 		var title = '<h3 class="result-title">' + data.title + '</h3>';
 		var extract = '<p>' + data.extract + '</p>';
