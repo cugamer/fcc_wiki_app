@@ -74,13 +74,7 @@ $(document).ready(function() {
 		}).then(function(res) {
 			createQueryIdPromise(res).then(function(res2) {
 				console.log(res2)		
-			})
+			});
 		});
-	}
-
-	querySearchIDs = function(ids) {
-		createQueryIdPromise(ids).then(function(res) {
-			console.log(res);
-		})
 	}
 });
