@@ -73,13 +73,19 @@ $(document).ready(function() {
 
 	getQueryTermMetadata = function(term) {
 		createQueryTermPromise(term).then(function(res) {
-			var queryPages = res.query.pages;
-			var pageIDs = Object.keys(queryPages);
-			return pageIDs;
+			if(res.query) {
+				var queryPages = res.query.pages;
+				var pageIDs = Object.keys(queryPages);
+				return pageIDs;
+			}
 		}).then(function(res) {
-			createQueryIdPromise(res).then(function(res2) {
-				console.log(res2)		
-			});
+			if(res) {
+				createQueryIdPromise(res).then(function(res2) {
+					console.log(res2)		
+				});
+			} else {
+				console.log("No results");
+			}			
 		});
 	}
 });
