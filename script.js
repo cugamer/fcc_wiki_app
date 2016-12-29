@@ -59,7 +59,6 @@ $(document).ready(function() {
 	}
 
 	createSearchIdPromise = function(ids) {
-		// var queryURL = "https://en.wikipedia.org/w/api.php?action=query&pageids=" + id + "&prop=extracts&exintro=&explaintext=&format=json";
 		var termString = ids.join("|");
 		var queryURL = "https://en.wikipedia.org/w/api.php?action=query&exintro=false&explaintext=&format=json&exlimit=10&pageids=" + termString + "&prop=extracts|info&inprop=url"
 		var jQueryIDPromise = $.getJSON(queryURL);
@@ -72,9 +71,8 @@ $(document).ready(function() {
 			var pageIDs = Object.keys(queryPages);
 			return pageIDs;
 		}).then(function(res) {
-			console.log(res)
 			createSearchIdPromise(res).then(function(res2) {
-				console.log(res2)		
+				console.log(res2.query.pages)		
 			})
 		});
 	}
