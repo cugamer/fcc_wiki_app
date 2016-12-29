@@ -17,6 +17,13 @@ body {
 	display: none;
 }
 
+.random-link {
+	font-size: 3.2em;
+	display: inline-block;
+	margin-bottom: 15px;
+	color: #000;
+}
+
 .fadein {
 	visibility: visible;
 	-webkit-transition: opacity 2s;
