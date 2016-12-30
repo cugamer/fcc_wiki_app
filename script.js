@@ -75,6 +75,7 @@ $(document).ready(function() {
 
 	$(".wiki-search").on("submit", function(e) {
 		e.preventDefault();
+		clearResultDisp();
 		var searchString = $("#wiki-search-field").val();
 		getQueryTermMetadata(searchString);
 	});
@@ -129,7 +130,7 @@ $(document).ready(function() {
 	}
 
 	shortenExtract = function(str) {
-		var maxLength = 85
+		var maxLength = 250
 		var shortened = str.slice(0, maxLength)
 		return str.length > maxLength ?  shortened + "..." : shortened;
 	}
